@@ -20,6 +20,11 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "homepage": "https://github.com/nnry/eslint-config#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nnry/eslint-config.git"
+  },
   "packageManager": "pnpm@10.30.3",
   "devDependencies": {
     "@eslint/js": "^10.0.1",
