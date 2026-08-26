@@ -5,16 +5,13 @@ import globals from 'globals';
 import tseslint from 'typescript-eslint';
 import { defineConfig } from 'eslint/config';
 /**
- * @typedef {import('eslint/rules/stylistic-issues').StylisticIssues} StylisticIssues
- * @typedef {{ [K in keyof StylisticIssues as `@stylistic/${K}`]: StylisticIssues[K] }} StylisticRules
- * @typedef {import('eslint/rules/possible-errors').PossibleErrors} PossibleErrors
- * @typedef {import('eslint/rules/best-practices').BestPractices} BestPractices
- * @typedef {import('eslint/rules').ESLintRules} ESLintRules
- * @typedef {PossibleErrors & BestPractices} JSRules
- * @typedef {{ [K in keyof ESLintRules as `@typescript-eslint/${K}`]: ESLintRules[K] }} TSRules
- * */
+ * @typedef {import('@stylistic/eslint-plugin/rule-options').RuleOptions} _StylisticRuleOptions
+ * @typedef {{ [K in keyof _StylisticRuleOptions]: ['error' | 'warn' | 'off', ..._StylisticRuleOptions[K]] }} StylisticRuleOptions
+ * @typedef {import('eslint').Linter.RulesRecord} JSRules
+ * @typedef {import('eslint').Linter.RulesRecord} TSRules
+ */
 
-/** @type{Partial<StylisticRules>} */
+/** @type {Partial<StylisticRuleOptions>} */
 const stylisticRules = {
   '@stylistic/semi': ['error', 'always', { omitLastInOneLineBlock: true }],
   '@stylistic/comma-dangle': ['error', 'always-multiline'],
@@ -22,7 +19,7 @@ const stylisticRules = {
   '@stylistic/no-multiple-empty-lines': ['error'],
   '@stylistic/indent': ['error', 2],
 };
-/** @type {Partial<JSRules>} */
+/** @type {JSRules} */
 const jsRules = {
   'no-empty': ['error'],
   'no-empty-function': ['error'],
@@ -66,17 +63,19 @@ export const base = defineConfig([
 
 export const browser = defineConfig([
   {
-    languageOptions: { globals: globals.browser }
+    languageOptions: { globals: globals.browser },
   },
   ...base,
 ]);
 
+/** @type {{ base: import('eslint').Linter.Config[], browser: import('eslint').Linter.Config[], stylistic: import('eslint').Linter.Config[] }} */
 export const configs = {
   base,
   browser,
   stylistic,
 };
 
+/** @type {{ configs: typeof configs }} */
 export const nnrylint = {
   configs,
 };

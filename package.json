@@ -15,6 +15,7 @@
     "src"
   ],
   "scripts": {
+    "typecheck": "tsc --noEmit --allowJs --checkJs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -29,10 +30,11 @@
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "@stylistic/eslint-plugin": "^5.9.0",
-    "@typescript-eslint/parser": "^8.56.1",
+    "@typescript-eslint/parser": "^8.68.0",
     "eslint": "^10.0.2",
     "globals": "^17.3.0",
-    "typescript-eslint": "^8.56.1"
+    "typescript": "^5.7.3",
+    "typescript-eslint": "^8.68.0"
   },
   "peerDependencies": {
     "@eslint/js": "^10.0.0",
