@@ -36,6 +36,7 @@ const tsRules = {
       ignoreRestSiblings: true,
     },
   ],
+  '@typescript-eslint/no-explicit-any': 'error',
 };
 
 /** @type {import('eslint').Linter.Config[]} */
