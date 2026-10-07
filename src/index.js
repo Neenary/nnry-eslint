@@ -16,6 +16,7 @@ const stylisticRules = {
   '@stylistic/semi': ['error', 'always', { omitLastInOneLineBlock: true }],
   '@stylistic/comma-dangle': ['error', 'always-multiline'],
   '@stylistic/quotes': ['error', 'single'],
+  '@stylistic/quote-props': ['error', 'as-needed'],
   '@stylistic/no-multiple-empty-lines': ['error'],
   '@stylistic/indent': ['error', 2],
 };
